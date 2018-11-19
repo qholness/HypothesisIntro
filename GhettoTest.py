@@ -1,5 +1,6 @@
 """
 Southern Fried testing goodness.
+Defining a test framework with math in mind.
 """
 
 

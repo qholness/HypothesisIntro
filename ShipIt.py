@@ -1,8 +1,8 @@
-from Ship import It
+import Ship
 
 
 def main():
-	it = It()
+	it = Ship.It()
 	it.run()
 
 
