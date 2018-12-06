@@ -1,43 +1,28 @@
-# Hypothesis: Data Science Crap Tester Magnifique!
+# Hypothesis: Data Science Tester Magnifique!
+
+Details:
+	Python verion 3.7
+	hypothesis==3.82.1
 
 
+What is Hypothesis?
+	Property-based testing utility.
+	More details here: https://hypothesis.readthedocs.io
 
 
-
-The singularity is coming. We must prepare.
-
-So test your crap to make sure we get there faster.
-
-
-
-
-
-Quick Survey:
-	How many people are Data Scientists/Engineers?
-	How many people write tests?
-
-
-
-
-How do we test data science to appease our robot overlords?
-
-
-
-
-Robots will purely be capable of enslaving the human race so if our code's crap, we're probably going to be 
-replaced with robots sooner than we'd like.
-
-
-
-
-There's a Python package for that:
-	Hypothesis
-
-
+Problem Statement:
+	Testing Data Science can be hard.
+	Why?
+		Dataframes, arrays, matrices.
+		Things that want to test "properties" rather than "units"
 
 
 Tonight:
 	Introduction
-	Example/Basic usage case and demonstration
-	Where to find more resources
-	How to ship.
+	Basic usage case and demonstration
+	Questions, if any
+	How to ship
+
+
+The AI singularity is coming.
+So test your math to make sure we get there faster.

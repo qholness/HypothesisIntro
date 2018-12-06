@@ -1,10 +1,6 @@
 import Ship
 
 
-def main():
+if __name__ == '__main__':
 	it = Ship.It()
 	it.run()
-
-
-if __name__ == '__main__':
-	main()

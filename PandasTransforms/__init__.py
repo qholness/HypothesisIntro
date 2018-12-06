@@ -1,4 +1,4 @@
-from MyMath import EuclideanDistance
+from Math import EuclideanDistance
 import pandas as pd
 import numpy as np
 

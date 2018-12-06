@@ -6,14 +6,30 @@ Thesis:
 """
 
 
-
-from MyMath import fib, EuclideanDistance, GetBetaCoefficient
+from hypothesis import given
+from hypothesis import settings
 from hypothesis import strategies as ST
-from hypothesis import given, settings
 from hypothesis.extra.pandas import data_frames, column
 import unittest
 import pandas as pd
-import PandasOps as ops
+import PandasTransforms as transforms
+import Math
+
+
+# hypothesis.given: main entry point for using Hypothesis.
+	# A wrapper utility for tests.
+	# Takes "SearchStrategy" objects (can define your own. More detail on that in the docs)
+
+# hypothesis.settings: test settings
+	# Can define test settings like number of examples, hypothesis health_checks and other settings
+
+# hypothesis.strategies: SearchStrategies
+	# What kind of data is generated for the test.
+	# Can refine the parameters.
+
+# hypothesis.extra
+	# Extra tools for popular Data Science and math packages.
+	# More details in the docks
 
 
 class Test(unittest.TestCase):
@@ -23,7 +39,7 @@ class Test(unittest.TestCase):
 		ST.integers(0, 10)
 	)
 	def test_00_fib_first_10(self, n):
-		fib(n)
+		Math.fib(n)
 
 
 	# Test fibonnaci sequence on negative numbers,
@@ -33,7 +49,7 @@ class Test(unittest.TestCase):
 		ST.integers(max_value=-1)
 	)
 	def test_01_fib_negative_values(self, n):
-		fib(n)
+		Math.fib(n)
 
 	# Test BetaCoefficient functionality
 	@given(
@@ -42,7 +58,7 @@ class Test(unittest.TestCase):
 		X1=ST.lists(ST.floats())
 	)
 	def test_03_BetaCoefficient(self, n, Y, X1):
-		beta = GetBetaCoefficient(Y, X1)
+		beta = Math.GetBetaCoefficient(Y, X1)
 		print(beta)
 
 
@@ -55,7 +71,7 @@ class Test(unittest.TestCase):
 		coord2=ST.tuples(ST.floats(), ST.floats())
 	)
 	def test_04_EuclideanDistance_unbound(self, coord1, coord2):
-		EuclideanDistance(coord1, coord2)
+		Math.EuclideanDistance(coord1, coord2)
 
 
 	# Test simple pandas transpose
@@ -66,7 +82,7 @@ class Test(unittest.TestCase):
 
 		]))
 	def test_05_transpose(self, df):
-		ops.transpose(df)
+		transforms.transpose(df)
 
 
 	# Test the creation of a geographic distance matrix
@@ -77,12 +93,7 @@ class Test(unittest.TestCase):
 	]))
 	def test_06_DistanceMatrixGeneration(self, df):
 		df['store_id'] = [_ for _ in range(len(df))]
-		ops.CreateDistanceMatrix(df)
-
-
-	def test_10_ShipIt(self):
-		# Get some pig ascii art here
-		pass
+		transforms.CreateDistanceMatrix(df)
 
 
 if __name__ == '__main__':

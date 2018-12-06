@@ -23,12 +23,11 @@ class It(object):
 
 
 	def bore_me(self):
-		spin = self.spinner()
 		with open('Text/atotc.txt', 'r') as atotc:
 			lines = atotc.readlines()
 		for _ in lines:
 			print(f"\t{_}")
-			sleep(3)
+			sleep(1.5)
 
 
 	def spinner(self):
@@ -46,7 +45,7 @@ class It(object):
 			sleep(load_rate)
 			sys.stdout.write('\b')
 
-	def RunRandomProcess(self, wait=10):
+	def run_random_process(self, wait=10):
 		position_choice = random.randint(0, len(self.random_phrases))
 		subprocess = random.choice([0, 0, 0, 1])
 		phrase = self.random_phrases.pop(position_choice)
@@ -61,18 +60,10 @@ class It(object):
 	def entertain_me(self):
 		num_processes = random.randint(10, 20)
 		for _ in range(num_processes):
-			wait_time = random.randint(0, 10)
-			self.RunRandomProcess(wait_time)
+			wait_time = random.randint(1, 4)
+			self.run_random_process(wait_time)
 
 
 	def run(self):
-		self.entertain_me()
+		# self.entertain_me()
 		self.bore_me()
-			
-			
-
-
-if __name__ == '__main__':
-	# Test it out
-	it = It()
-	it.run()
